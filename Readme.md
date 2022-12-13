@@ -274,31 +274,7 @@ tmpfs                 968M     0  968M   0% /sys/fs/cgroup
 tmpfs                 194M     0  194M   0% /run/user/0
 ```
 
-Видим, что получилось все и как надо. Осталось убедиться что LV будет монтироваться автоматом. Смотрим еще раз текущие тома:
-
-```
-lvdisplay
-```
-
-```
-LV Path                /dev/vg0/root							# наш том
-  LV Name                root
-  VG Name                vg0
-  LV UUID                WmUgCr-PuXN-jveP-GKin-z6Jf-sNzK-xFI2HH
-  LV Write Access        read/write
-  LV Creation host, time rescue, 2022-12-13 13:14:18 +0100
-  LV Status              available
-  # open                 1
-  LV Size                62.64 GiB
-  Current LE             16036
-  Segments               2
-  Allocation             inherit
-  Read ahead sectors     auto
-  - currently set to     256
-  Block device           253:0
-```
-
-Сравниваем с записью в `fstab`
+Видим, что получилось все и как надо. Осталось убедиться что LV будет монтироваться автоматом. Вспоминаем название текущего LV тома (`/dev/vg0/root`) и сравниваем с записью в `fstab`:
 
 ```
 cat /etc/fstab
@@ -316,4 +292,4 @@ UUID=c5c6cf18-15aa-46e6-a15f-d1c9c9ae9153 /boot ext3 defaults 0 0
 
 PS. Все вопросы, обнаруженные косяки и неточности мне в тг: @ryssroad
 
-PPS. Этот же гайд залил в github, не ленимся, заходим и ставим звезду )
+PPS. Не забываем поставить звезду в этот репо )
